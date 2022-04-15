@@ -1,25 +1,72 @@
 import math
-x = [0,2,4,34,34,53]
-def ls(s):
-  counter = 0
-  for i in s:
-    s[counter] = str(i)
-    counter = counter + 1
-  return s
-def lts(s): 
-    
-    # initialize an empty string
-    str1 = " " 
-    
-    # return string  
-    print(str1.join(s))
-
-
-def list_to_string(l):
+def list_to_string(mylist):
+  '''
+  makes a list of numbers a string
+  '''
   list = ''
-  for i in l:
+  for i in mylist:
      list = list + ' ' + str(i)
   return(list)
+
+def profiler(fafsta,letter):
+  '''
+  given a collection of DNA string and either A,C,T, or G, an apt profile is created
+  '''
+  l = fafsta.split("\n")[1::2]
+  str_length = len(l[1])
+  counter = 0
+  la = []
+  while counter < str_length:
+    number = 0
+    for i in l:
+      if i[counter] == letter:
+        number = number + 1
+      else:
+        number = number
+    la.append(number)
+    counter = counter + 1
+  return la
+
+
+def finalprofile(fafsta):
+  '''
+  given a collection of DNA strings, a profile is producted for A, C, T and G
+  '''
+  return("A:" + list_to_string(profiler(fafsta,'A')) + '\n' + 'C:' + list_to_string(profiler(fafsta,"C")) + '\n' + 'G:'+ list_to_string(profiler(fafsta,'G')) + '\n' + 'T:' + list_to_string(profiler(fafsta,'T')))
+
+
+def raw(profile):
+  '''
+  converts the profile into a list of numbers that can be used to make a consensus
+  '''
+  raw = profile.split('\n')
+  index = 0
+  for i in raw:
+    raw[index] = i[3:]
+    index += 1
+  return(raw)
+
+def consensus(list):
+  '''program that will make a consensus given a list of numbers
+  '''
+  num = 0
+  mystr = ''
+  while num < len(list[0]):
+    d = {}
+    d["A"] = int(list[0][num])
+    d["C"] = int(list[1][num])
+    d["G"] = int(list[2][num])
+    d["T"] = int(list[3][num])
+    mystr = mystr + sorted(d.items(), key=lambda x: x[1])[::-1][0][0]
+    num = num + 2
+  print(mystr)
+  return(mystr)
+
+def profile_and_consensus(fafsta):
+  '''
+  uses all of the helper functions to create a final profile and consensus given a collection of DNA string
+   '''
+  print (consensus(raw(finalprofile (fafsta))) + '\n' + finalprofile(fafsta))
 
 sample=""">Rosalind_1
 ATCCAGCT
@@ -36,50 +83,4 @@ ATGCCATT
 >Rosalind_7
 ATGGCACT"""
 
-
-def profiler(f,letter):
-  l = f.split("\n")[1::2]
-  str_length = len(l[1])
-  counter = 0
-  la = []
-  while counter < str_length:
-    number = 0
-    for i in l:
-      if i[counter] == letter:
-        number = number + 1
-      else:
-        number = number
-    la.append(number)
-    counter = counter + 1
-  return la
-
-
-def fprofile(f):
-  return("A:" + list_to_string(profiler(f,'A')) + '\n' + 'C:' + list_to_string(profiler(f,"C")) + '\n' + 'G:'+ list_to_string(profiler(f,'G')) + '\n' + 'T:' + list_to_string(profiler(f,'T')))
-
-y = fprofile(sample)
-
-# Makes the profile into something usable to make a consensus
-def raw(p):
-  raw = p.split('\n')
-  index = 0
-  for i in raw:
-    raw[index] = i[3:]
-    index += 1
-  return(raw)
-
-z = raw(y)
-def consensus(l):
-  num = 0
-  str = ''
-  while num < len(l[0]):
-    d = {}
-    d["A"] = int(l[0][num])
-    d["C"] = int(l[1][num])
-    d["G"] = int(l[2][num])
-    d["T"] = int(l[3][num])
-    str = str + sorted(d.items(), key=lambda x: x[1])[::-1][0][0]
-    num = num + 2
-  return(str)
-
-consensus(z)
+profile_and_consensus(sample)
