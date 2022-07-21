@@ -1,3 +1,7 @@
+'''
+Consensus and Profile
+https://rosalind.info/problems/cons/'''
+
 import math
 def list_to_string(mylist):
   '''
