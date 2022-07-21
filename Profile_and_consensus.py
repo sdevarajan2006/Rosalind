@@ -68,19 +68,21 @@ def profile_and_consensus(fafsta):
    '''
   print (consensus(raw(finalprofile (fafsta))) + '\n' + finalprofile(fafsta))
 
-sample=""">Rosalind_1
-ATCCAGCT
->Rosalind_2
-GGGCAACT
->Rosalind_3
-ATGGATCT
->Rosalind_4
-AAGCAACC
->Rosalind_5
-TTGGAACT
->Rosalind_6
-ATGCCATT
->Rosalind_7
-ATGGCACT"""
+if __name__ == '__main__':   
 
-profile_and_consensus(sample)
+  sample = """>Rosalind_1
+  ATCCAGCT
+  >Rosalind_2
+  GGGCAACT
+  >Rosalind_3
+  ATGGATCT
+  >Rosalind_4
+  AAGCAACC
+  >Rosalind_5
+  TTGGAACT
+  >Rosalind_6
+  ATGCCATT
+  >Rosalind_7
+  ATGGCACT"""
+
+  profile_and_consensus(sample)
