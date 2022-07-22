@@ -1,7 +1,8 @@
+'''
+Finding a Shared Motif
+https://rosalind.info/problems/lcsm/
+'''
 import math
-
-
-
 
 def list_of_nucleotides(sample):
     '''
@@ -16,7 +17,6 @@ def list_of_nucleotides(sample):
         else:
             new_list.append(i)
     return(new_list)
-
 
 
 def substring_in_a_dna_str(substring, dna_str):
