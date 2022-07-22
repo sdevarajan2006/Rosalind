@@ -90,14 +90,15 @@ def shared_motif(fafsta_dna_strings):
     longest_motif = max(list_of_common_motifs(fafsta_dna_strings),key=len)
     return(longest_motif)
 
-sample = '''>Rosalind_1
-GATTACTGGAC
->Rosalind_2
-TAGACCAACTGACA
->Rosalind_3
-ATACACTGAAG'''
+if __name__ == '__main__':   
+    sample = '''>Rosalind_1
+    GATTACTGGAC
+    >Rosalind_2
+    TAGACCAACTGACA
+    >Rosalind_3
+    ATACACTGAAG'''
 
-print(shared_motif(sample))
+    print(shared_motif(sample))
     
 
 
