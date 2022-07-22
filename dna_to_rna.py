@@ -15,6 +15,6 @@ def dna_to_rna(dna_str):
     return(rna_str)
     
 if __name__ == '__main__':
-    sample = "GATGGAACTTGACTACGTAAATT"
+    sample = 'CAGCCGAAATTCATGTTCGGTGAGTAACTAAGACT'
     rna_str = dna_to_rna(sample)
     print(rna_str)
