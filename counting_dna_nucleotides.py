@@ -24,9 +24,10 @@ def count_nucleotides(dna_string):
             t += 1
         else:
             pass
-    print(a,c,g,t)
     return(a,c,g,t)
     
 if __name__ == '__main__':   
     sample = '''CAATGACATACCACATCCCCTCCGGTAGTGGGCCCAGTAAGC'''
-    count_nucleotides(sample)
+    a,c,g,t = count_nucleotides(sample)
+    print(a,c,g,t)
+    
