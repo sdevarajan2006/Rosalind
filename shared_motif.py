@@ -1,11 +1,5 @@
 import math
 
-sample = '''>Rosalind_1
-GATTACTGGAC
->Rosalind_2
-TAGACCAACTGACA
->Rosalind_3
-ATACACTGAAG'''
 
 
 
@@ -85,17 +79,25 @@ def list_of_common_motifs(dna_strings_list):
             list_of_motifs.append(substring[:-1])
             starting_substring_letter = starting_substring_letter + 1
             ending_substring_letter = starting_substring_letter + 2
-    print(list_of_motifs)
     return(list_of_motifs)
 
-list_of_common_motifs(sample)
+
         
 def shared_motif(fafsta_dna_strings):
+    '''
+    outputs the largest motif out of the given list 
+    '''
     longest_motif = max(list_of_common_motifs(fafsta_dna_strings),key=len)
-    print(longest_motif)
     return(longest_motif)
 
-shared_motif(sample)
+sample = '''>Rosalind_1
+GATTACTGGAC
+>Rosalind_2
+TAGACCAACTGACA
+>Rosalind_3
+ATACACTGAAG'''
+
+print(shared_motif(sample))
     
 
 
