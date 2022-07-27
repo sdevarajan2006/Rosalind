@@ -1,3 +1,8 @@
+'''
+Translating RNA into Protein
+https://rosalind.info/problems/prot/
+'''
+
 #Codon Table 
 cstr = """UUU F      CUU L      AUU I      GUU V
 UUC F      CUC L      AUC I      GUC V
@@ -25,7 +30,7 @@ cDict = {}
 
 def find_protein(rna_string):
     '''
-    This function takes in an rna string and finds the matching protein
+    This function takes in an rna string of length 3 and finds the matching protein
     '''
     for i in cDict:
         if i == rna_string:
@@ -34,6 +39,10 @@ def find_protein(rna_string):
             pass
 
 def translate_rna_to_protein(rna_string):
+    '''
+    This function takes the entire RNA string and converts it into a string of 
+    proteins
+    '''
     counter = 0
     protein_string = ' '
     while counter < len(rna_string) - 3:
