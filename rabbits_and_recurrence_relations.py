@@ -5,8 +5,6 @@ https://rosalind.info/problems/fib/
 
 import math
 
-n = 5
-k = 3
 
 def number_of_offspring(n,k):
     '''
