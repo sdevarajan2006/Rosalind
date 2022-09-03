@@ -9,6 +9,11 @@ n = 5
 k = 3
 
 def number_of_offspring(n,k):
+    '''
+    This function takes in n months with k offspring per month, and produces the total number of rabbits
+    that will be present per month
+    This module was difficult for me to understand, but once I found the pattern the code was much easier to figure out
+    '''
     number_of_months = n
     list_of_monthly_offspring = []
     while number_of_months > 0:
